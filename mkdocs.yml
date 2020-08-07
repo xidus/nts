@@ -1,0 +1,22 @@
+site_name: Today I learned
+site_description: Stuff I learned
+site_author: Joachim Mortensen
+docs_dir: docs/
+repo_name: til
+repo_url: https://github.com/xidus/til
+nav:
+    - Home: index.md
+    - Git: git.md
+theme:
+  name: material
+  palette:
+    primary: blue
+    accent: white
+
+markdown_extensions:
+  - codehilite
+    # # https://help.farbox.com/pygments.html
+    # pygments_style: 'pastie'
+    # linenums: False
+    # # set to false to turn off pygments_style
+    # noclasses: True
