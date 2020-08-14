@@ -1,22 +1,72 @@
+# Project information
 site_name: Today I learned
 site_description: Stuff I learned
 site_author: Joachim Mortensen
 docs_dir: docs/
+
+# Repository
 repo_name: til
 repo_url: https://github.com/xidus/til
+edit_url: ''
+
+# Copyright
+# copyright: ''
+
+# Configuration
+theme:
+  name: material
+
+  language: en
+  features:
+  - tabs
+
+  palette:
+    primary: white
+    accent: white
+
+# Plugins
+plugins:
+- search
+
+# Extensions in use
+markdown_extensions:
+  - markdown.extensions.admonition
+  # - markdown.extensions.attr_list
+  # - markdown.extensions.def_list
+  - markdown.extensions.footnotes
+  # - markdown.extensions.meta
+  - markdown.extensions.toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  # - pymdownx.caret
+  # - pymdownx.critic
+  # - pymdownx.details
+  # - pymdownx.emoji:
+  #     emoji_index: !!python/name:materialx.emoji.twemoji
+  #     emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  # - pymdownx.magiclink:
+  #     repo_url_shorthand: true
+  #     user: username
+  #     repo: reponame
+  # - pymdownx.mark
+  # - pymdownx.smartsymbols
+  # - pymdownx.snippets:
+  #     check_paths: true
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Navigation
 nav:
     - Home: index.md
     - Git: git.md
-theme:
-  name: material
-  palette:
-    primary: blue
-    accent: white
+    - Shell: shell.md
 
-markdown_extensions:
-  - codehilite
-    # # https://help.farbox.com/pygments.html
-    # pygments_style: 'pastie'
-    # linenums: False
-    # # set to false to turn off pygments_style
-    # noclasses: True
