@@ -69,4 +69,4 @@ nav:
     - Home: index.md
     - Git: git.md
     - Shell: shell.md
-
+    - LeafletJS: leafletjs.md
