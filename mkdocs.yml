@@ -70,3 +70,5 @@ nav:
     - Git: git.md
     - Shell: shell.md
     - LeafletJS: leafletjs.md
+    - Python: python.md
+
