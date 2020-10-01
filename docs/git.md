@@ -1,5 +1,6 @@
 # Git
 
+
 ## Github
 
 ### Clean up branches locally after pull-request merge on GitHub
@@ -14,6 +15,7 @@ Based on [this site][clean-local-branches], I ended up doing the following:
 * Then deletion went fine.
 
 [clean-local-branches]: http://www.fizerkhan.com/blog/posts/Clean-up-your-local-branches-after-merge-and-delete-in-GitHub.html
+
 
 ### [How do I update a GitHub forked repository?](https://stackoverflow.com/questions/7244321/how-do-i-update-a-github-forked-repository)
 
@@ -55,4 +57,21 @@ Method 1: Easiest way is to open properties for the short cut for Git Bash and c
 Method 2: Open Explorer (Windows + E) and navigate to your directory. Then, right-click and select open location with Git Bash.
 
 ---
+
+
+## Workflow
+
+### Semantic commit messages
+
+> ```
+> chore: add Oyster build script
+> docs: explain hat wobble
+> feat: add beta sequence
+> fix: remove broken confirmation message
+> refactor: share logic between 4d3d3d3 and flarhgunnstow
+> style: convert tabs to spaces
+> test: ensure Tayne retains clothing
+> ```
+> 
+> -- Source: https://seesparkbox.com/foundry/semantic_commit_messages
 
