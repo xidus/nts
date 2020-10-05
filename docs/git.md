@@ -61,6 +61,29 @@ Method 2: Open Explorer (Windows + E) and navigate to your directory. Then, righ
 
 ## Workflow
 
+### Automatically update all local repositories
+
+I have written [the following script](assets/git-pull-all.sh) that I keep in the directory of git repositories that I use for work.
+
+```bash
+#!/bin/bash
+for dir in ./*/
+do
+    dir=${dir%*/}
+    echo ${dir##*/}
+    cd ${dir}
+    git pull
+    cd -
+done
+```
+
+The script simply loops over all the directories (assumed to be git repositories) and runs `git pull` inside each of them.
+
+Use case: When at work, I often change source files locally or centrally (github enterprise), which means that I do not always have the updated version of the locally activated branches that I have on my work computer. In this case, there is usually no danger involved in automating an update of each repository.
+
+I found [this simple solution on stack overflow](https://stackoverflow.com/questions/2107945/how-to-loop-over-directories-in-linux#2108296), it only took about two minutes to create a script that does exactly this for me.
+
+
 ### Semantic commit messages
 
 > ```
