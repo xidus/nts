@@ -1,6 +1,5 @@
 # Git
 
-
 ## Github
 
 ### Clean up branches locally after pull-request merge on GitHub
@@ -58,6 +57,14 @@ Method 2: Open Explorer (Windows + E) and navigate to your directory. Then, righ
 
 ---
 
+### [How to create file execute mode permissions in Git on Windows?](https://stackoverflow.com/questions/21691202/how-to-create-file-execute-mode-permissions-in-git-on-windows#21694391)
+
+From [the following answer](https://stackoverflow.com/a/38285462), I got this simple solution:
+
+> ```
+> git add --chmod=+x -- afile
+> git commit -m"Executable!"
+> ```
 
 ## Workflow
 
