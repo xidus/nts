@@ -71,4 +71,5 @@ nav:
     - Shell: shell.md
     - LeafletJS: leafletjs.md
     - Python: python.md
+    - Pandoc: pandoc.md
 
