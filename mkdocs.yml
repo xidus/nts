@@ -72,4 +72,5 @@ nav:
     - LeafletJS: leafletjs.md
     - Python: python.md
     - Pandoc: pandoc.md
+    - Jupyter: jupyter.md
 
