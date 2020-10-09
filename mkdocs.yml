@@ -66,11 +66,22 @@ markdown_extensions:
 
 # Navigation
 nav:
-    - Home: index.md
-    - Git: git.md
-    - Shell: shell.md
-    - LeafletJS: leafletjs.md
-    - Python: python.md
-    - Pandoc: pandoc.md
-    - Jupyter: jupyter.md
+- Home: index.md
+- Git: git.md
+- Shell: shell.md
+- LeafletJS: leafletjs.md
+- Python: python.md
+- Jupyter: jupyter.md
+- Software Development:
+  - Concepts: concepts.md
+  - Good: good.md
+- Tools:
+  - Pandoc: pandoc.md
+  - Squirrel SQL: squirrel-sql.md
+- Linux:
+  - Red Hat: rhel.md
+- Unix:
+  - FreeBSD: freebsd.md
+- Miscellaneous: miscellaneous.md
+- Makefile: make.md
 
