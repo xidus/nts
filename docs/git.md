@@ -105,3 +105,50 @@ I found [this simple solution on stack overflow](https://stackoverflow.com/quest
 > 
 > -- Source: https://seesparkbox.com/foundry/semantic_commit_messages
 
+### Stash
+
+https://stackoverflow.com/questions/89332/how-to-recover-a-dropped-stash-in-git#91795
+
+---
+
+### Undo last commit
+
+`git reset HEAD~1`
+
+
+### Untrack file without deleting it.
+
+From: https://stackoverflow.com/a/1143800
+
+> When --cached is given, the staged content has to match either the tip of the branch or the file on disk, allowing the file to be removed from just the index.
+> 
+> So, for a single file:
+> 
+>     git rm --cached mylogfile.log
+> 
+> and for a single directory:
+> 
+>     git rm --cached -r mydirectory
+> 
+> 
+
+---
+
+### Squash commits
+
+From: https://stackoverflow.com/a/5309051
+
+>     git checkout master
+>     git merge --squash bugfix
+>     git commit
+
+> [Comment][] If you want to keep references to the old commit messages you can write git commit (without -m param) and you will get to modify a drafted commit message containing all commit messages that you squashed.
+
+[Comment]: https://stackoverflow.com/questions/5308816/how-to-use-git-merge-squash#comment26548055_5309051
+
+---
+
+### Other
+
+*   https://stackoverflow.com/questions/12481639/remove-files-from-git-commit/15321456#15321456
+*   https://stackoverflow.com/questions/307828/how-do-you-fix-a-bad-merge-and-replay-your-good-commits-onto-a-fixed-merge
