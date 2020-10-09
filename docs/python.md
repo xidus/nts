@@ -1,6 +1,7 @@
 # Python
 
 * https://awesome-python.com/
+* http://www.ianbicking.org/docs/setuptools-presentation/
 
 ## Snippets
 
