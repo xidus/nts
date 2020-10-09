@@ -24,3 +24,29 @@ def load_args():
     return parser.parse_args()
 
 ```
+
+### Old test approach
+
+```python
+# context.py
+
+import os
+import sys
+
+SYS_PATH_INDEX: int = 0
+parent_directory_relative = os.path.join(os.path.dirname(__file__), '..')
+SYS_PATH = os.path.abspath(parent_directory_relative)
+```
+
+```python
+# test_something.py
+
+
+import os
+import sys
+
+import context
+sys.path.insert(context.SYS_PATH_INDEX, context.SYS_PATH)
+
+# ...
+```
