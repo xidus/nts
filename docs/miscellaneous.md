@@ -19,3 +19,9 @@ https://www.researchgate.net/publication/258350100_Ten_Simple_Rules_for_Reproduc
 https://jakevdp.github.io/PythonDataScienceHandbook/
 
 https://en.wikipedia.org/wiki/Tf%E2%80%93idf
+
+---
+
+[tsocks-1.8-7.beta5.2.el7.rf.x86_64.rpm CentOS 7 Download](https://centos.pkgs.org/7/repoforge-x86_64/tsocks-1.8-7.beta5.2.el7.rf.x86_64.rpm.html)
+
+---
