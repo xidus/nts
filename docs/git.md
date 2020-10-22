@@ -148,6 +148,15 @@ From: https://stackoverflow.com/a/5309051
 
 ---
 
+### Line-feed (LF), carriage-return (CR) and `.gitattributes` versus `core.autocrlf = true`
+
+* https://stackoverflow.com/questions/5834014/lf-will-be-replaced-by-crlf-in-git-what-is-that-and-is-it-important#5834094
+* https://stackoverflow.com/a/31747915
+* https://stackoverflow.com/questions/57960566/how-to-force-consistent-line-endings-in-git-commits-with-cross-platform-compatib/59644154#59644154
+* https://docs.github.com/en/free-pro-team@latest/github/using-git/configuring-git-to-handle-line-endings#per-repository-settings
+
+---
+
 ### Other
 
 *   https://stackoverflow.com/questions/12481639/remove-files-from-git-commit/15321456#15321456
