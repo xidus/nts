@@ -1,6 +1,15 @@
 # Miscellaneous
 
+## Git Bash for Windows (installed with Git)
+
+* https://blog.tiger-workshop.com/add-rsync-to-git-bash-for-windows/
+  - http://www2.futureware.at/~nickoe/msys2-mirror/msys/x86_64/
+
+
 ## Links
+
+* https://stackoverflow.com/questions/4585929/how-to-use-cp-command-to-exclude-a-specific-directory#14789400
+
 
 [edunham / Sysadmin/DevOps at Mozilla](http://edunham.net/)
 
