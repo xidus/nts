@@ -5,6 +5,24 @@
 
 ## Snippets
 
+### Merge .pdf files
+
+From answer to [Merge PDF files](https://stackoverflow.com/questions/3444645/merge-pdf-files#3444735)
+
+```python
+from PyPDF2 import PdfFileMerger
+
+pdfs = ['file1.pdf', 'file2.pdf', 'file3.pdf', 'file4.pdf']
+
+merger = PdfFileMerger()
+
+for pdf in pdfs:
+    merger.append(pdf)
+
+merger.write("result.pdf")
+merger.close()
+```
+
 ### `argparse` how-to
 
 ```python
