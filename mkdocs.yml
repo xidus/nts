@@ -84,4 +84,4 @@ nav:
   - FreeBSD: freebsd.md
 - Miscellaneous: miscellaneous.md
 - Makefile: make.md
-
+- Probabilistic Programming: bayes.md
