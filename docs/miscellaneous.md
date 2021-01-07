@@ -1,5 +1,17 @@
 # Miscellaneous
 
+## Concepts
+
+* [The Actual Difference Between Statistics and Machine Learning
+](https://towardsdatascience.com/the-actual-difference-between-statistics-and-machine-learning-64b49f07ea3)
+* [Statistics versus machine learning](https://www.nature.com/articles/nmeth.4642)
+* Not read, saved for later: [Difference between Machine Learning & Statistical Modeling](https://www.analyticsvidhya.com/blog/2015/07/difference-machine-learning-statistical-modeling/)
+* []()
+
+Stuffs
+
+* https://healthcare.ai/
+
 ## Git Bash for Windows (installed with Git)
 
 * https://blog.tiger-workshop.com/add-rsync-to-git-bash-for-windows/
