@@ -1,12 +1,12 @@
 # Project information
-site_name: Today I learned
-site_description: Stuff I learned
+site_name: Notes to self
+site_description: More or less complete guides for myself
 site_author: Joachim Mortensen
 docs_dir: docs/
 
 # Repository
 repo_name: til
-repo_url: https://github.com/xidus/til
+repo_url: https://github.com/xidus/nts
 edit_url: ''
 
 # Copyright
@@ -78,10 +78,11 @@ nav:
 - Tools:
   - Pandoc: pandoc.md
   - Squirrel SQL: squirrel-sql.md
+  - Sybase ASE: sybase.md
 - Linux:
-  - Red Hat: rhel.md
+  - Red Hat: linux/rhel.md
 - Unix:
-  - FreeBSD: freebsd.md
+  - FreeBSD: unix/freebsd.md
 - Miscellaneous: miscellaneous.md
 - Makefile: make.md
 - Probabilistic Programming: bayes.md
