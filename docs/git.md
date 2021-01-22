@@ -1,6 +1,43 @@
 # Git
 
+## Configuration files
+
+## Global and local Git-configuration files
+
+### Content
+
+### Location
+
+Windows
+
+## SSH keys and configuration file
+
+Linux/BSD
+
+* `~/.ssh/`
+
+Windows
+
+TBW
+
+## Repository files
+
+* `.gitignore`
+* `.gitkeep`
+* `.gitattributes`
+
 ## Github
+
+### GitHub-specific configuration files
+
+Templates and general
+
+* `.github/`
+
+GitHub Actions-configuration files
+
+* `.github/workflows/`
+
 
 ### Clean up branches locally after pull-request merge on GitHub
 
