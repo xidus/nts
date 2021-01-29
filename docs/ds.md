@@ -1,0 +1,9 @@
+Classification
+Clustering
+Change detection
+Data smoothing
+Validation
+Prediction
+Optimization
+Experimentation
+Decision making
