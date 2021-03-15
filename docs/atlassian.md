@@ -18,7 +18,7 @@ document
 
 It loops over all relevant buttons and clicks them. This means that an open sprint list is closed, and vice versa.
 
-To use it drag the following link to your browser's bookmarks menu: [Collapse sprints](javascript: document.querySelectorAll('div.ghx-backlog-header.js-sprint-header > button').forEach(element => { element.click(); }); void(null);)
+To use it drag the following link to your browser's bookmarks menu: <a href="javascript: document.querySelectorAll('div.ghx-backlog-header.js-sprint-header > button').forEach(element => { element.click(); }); void(null);">Collapse sprints</a> .
 
 ### Text formatting notation
 
