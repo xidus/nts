@@ -2,6 +2,24 @@
 
 ## Jira
 
+### Bookmarklet
+
+I wrote the following Javascript (bookmarklet) for collapsing/opening all sprints in the backlog:
+
+```javascript
+document
+  .querySelectorAll('div.ghx-backlog-header.js-sprint-header > button')
+  .forEach(element =>
+  {
+    element.click();
+  });
+  void(null);
+```
+
+It loops over all relevant buttons and clicks them. This means that an open sprint list is closed, and vice versa.
+
+To use it drag the following link to your browser's bookmarks menu: [Collapse sprints](javascript: document.querySelectorAll('div.ghx-backlog-header.js-sprint-header > button').forEach(element => { element.click(); }); void(null);)
+
 ### Text formatting notation
 
 * [Text Formatting Notation Help](https://jira.atlassian.com/secure/WikiRendererHelpAction.jspa?section=all)
