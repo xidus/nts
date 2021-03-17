@@ -1,3 +1,5 @@
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script> <script>mermaid.initialize({startOnLoad:true});</script>
+
 # Git
 
 ## Configuration files
@@ -212,6 +214,61 @@ From: https://stackoverflow.com/a/5309051
 > [Comment][] If you want to keep references to the old commit messages you can write git commit (without -m param) and you will get to modify a drafted commit message containing all commit messages that you squashed.
 
 [Comment]: https://stackoverflow.com/questions/5308816/how-to-use-git-merge-squash#comment26548055_5309051
+
+---
+
+### Working with git as root / admin user
+
+These are some ideas that I have tried out previously. They do not feel right, but they work.
+
+Admin user is a user on the host with root privileges using `sudo`.
+
+As admin user on the server:
+
+* Add info to admin user `~/.gitconfig`
+* Add info to root user `/root/.gitconfig`
+
+  ```gitconfig
+  (...)
+  [user]
+      name = Any admin user
+      email = actual email of maintainer.
+      username = root@server
+  (...)
+  ```
+
+* Add info to repo's config file `.git/config`
+
+  Details of repo's config file for use with this setup:
+
+  ```sshconfig
+  (...)
+  [core]
+      repositoryformatversion = 0
+      filemode = true
+      bare = false
+      logallrefupdates = true
+      sshCommand = ssh -i ~/.ssh/[SSHKEY] -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no
+  (...)
+  ```
+
+* Add SSH key (GH deploy key) to `/root/.ssh`
+* Add this key to repository's deploy keys on GH.
+
+* On the server, all write operations, including git push and git pull must be run with sudo.
+
+<!---
+<div class="mermaid">
+    graph LR
+    A[system] -->|extracted| B(program.py)
+    B -->|Step 1| C(search)
+    C -->|Raw HTML| D[`cmd1`]
+    B -->|Step 2| E(get)
+    E -->|Raw| F[`cmd2`]
+    B -->|Step 3| G(transform)
+    G -->|format| H[`cmd3`]
+</div>
+-->
 
 ---
 
