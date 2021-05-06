@@ -257,7 +257,9 @@ As admin user on the server:
 
 * On the server, all write operations, including git push and git pull must be run with sudo.
 
-<!---
+### MermaidJS
+
+
 <div class="mermaid">
     graph LR
     A[system] -->|extracted| B(program.py)
@@ -268,7 +270,6 @@ As admin user on the server:
     B -->|Step 3| G(transform)
     G -->|format| H[`cmd3`]
 </div>
--->
 
 ---
 
