@@ -4,6 +4,17 @@
 
 ## Configuration files
 
+### `~/.ssh/config` for github.com
+
+Assuming SHS key `[MY_KEY]` is used
+
+```
+Host github.com
+    User git
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/[MY_KEY]
+```
+
 ## Global and local Git-configuration files
 
 ### Content
