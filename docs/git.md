@@ -15,6 +15,22 @@ Host github.com
     IdentityFile ~/.ssh/[MY_KEY]
 ```
 
+!!! note
+    Remember to set permissions on `~/.ssh` to, say, `600`, like so:
+    
+    ```sh
+    chmod 600 ~/.ssh
+    ```
+    
+    Otherwise, you should get an error like the following, when you run git from the commandline:
+    
+    ```
+    Bad owner or permissions on /home/[USERNAME]/.ssh/config
+    ```
+    
+    where `[USERNAME]` would be your username.
+
+
 ## Global and local Git-configuration files
 
 ### Content
