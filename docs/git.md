@@ -15,13 +15,21 @@ Host github.com
     IdentityFile ~/.ssh/[MY_KEY]
 ```
 
-!!! note
+??? note
+    
+    !!! warning
+    
+        It may be that I set the directory permissions during problem debugging, because I did not have any key with the name I was using.
+
     Remember to set permissions on `~/.ssh` to, say, `600`, like so:
     
     ```sh
-    chmod 600 ~/.ssh
+    # chmod 600 ~/.ssh
+    chmod 700 ~/.ssh
     ```
-    
+
+    The commented-out line above did not work, but making the directory executable did.
+
     Otherwise, you should get an error like the following, when you run git from the commandline:
     
     ```
