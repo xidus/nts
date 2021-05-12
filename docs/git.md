@@ -38,6 +38,16 @@ Host github.com
     
     where `[USERNAME]` would be your username.
 
+#### Case: What to do if github is unreachable from my server, because port 22 for outgoing requests is blocked?
+
+Github can be reached with SSH in other ways. The following shows the SSH configuration, I found online (source?)
+
+```sshconfig
+Host github.com
+    HostName ssh.github.com
+    Port 443
+    # ...
+```
 
 ## Global and local Git-configuration files
 
