@@ -1,5 +1,7 @@
 # Jupyter
 
+[Official Jupyter Lab online documentation](https://jupyterlab.readthedocs.io/en/stable/index.html)
+
 ## Working with virtual environments
 
 ### Register python interpreter in virtual environment
