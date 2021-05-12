@@ -3,7 +3,23 @@
 * https://awesome-python.com/
 * http://www.ianbicking.org/docs/setuptools-presentation/
 
+
 ## Snippets
+
+### Conda settings
+
+Add conda-forge as default channel:
+
+```sh
+conda config --add channels conda-forge
+conda config --set channel_priority strict
+```
+
+References:
+
+* https://conda-forge.org/docs/
+
+
 
 ### Merge .pdf files
 
