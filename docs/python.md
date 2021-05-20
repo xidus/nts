@@ -19,6 +19,35 @@ References:
 
 * https://conda-forge.org/docs/
 
+### Conda environments
+
+Create environment file
+
+```
+conda env export > environment_droplet.yml
+```
+
+Create a conda environment from an environment file
+
+```
+conda env create -f environment.yml
+```
+
+Other commands
+
+```
+# List available conda environments
+conda info --envs  
+
+# Create environment
+conda create --name [NAME]
+
+# Remove environment and dependencies
+conda remove --name [NAME] --all
+
+# Clone existing environment
+conda create --name [NEW_NAME] --clone [EXISTING_NAME]
+```
 
 
 ### Merge .pdf files
