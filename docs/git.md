@@ -158,6 +158,7 @@ Other material:
 
 * https://www.techrepublic.com/article/github-to-replace-master-with-main-starting-in-october-what-developers-need-to-know/
 
+* https://stackoverflow.com/questions/64249491/difference-between-main-branch-and-master-branch-in-github
 
 ## Windows
 
