@@ -17,6 +17,7 @@ setup(
     zip_safe=False,
     
     packages=find_packages(where='src'),
+    package_dir={'': 'src'},
     package_data={
         'package': [
             'file_relative_to_package_dir_in_src',
