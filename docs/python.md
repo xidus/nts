@@ -6,6 +6,11 @@
 
 ## Snippets
 
+### Miniconda installation
+
+*   https://docs.conda.io/en/latest/miniconda.html
+*   https://repo.anaconda.com/miniconda/
+
 ### Conda settings
 
 Add conda-forge as default channel:
