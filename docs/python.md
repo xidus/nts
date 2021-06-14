@@ -118,3 +118,25 @@ sys.path.insert(context.SYS_PATH_INDEX, context.SYS_PATH)
 
 # ...
 ```
+
+## Scientific Python
+
+### Pandas
+
+#### [How to Flatten MultiIndex Columns into a Single Index DataFrame in Pandas](https://www.pauldesalvo.com/how-to-flatten-multiindex-columns-into-a-single-index-dataframe-in-pandas/)
+
+```python
+df = pd.DataFrame(np.random.randint(3,size=(4, 3)), index = ['apples','apples','oranges','oranges'], columns=['A','B','C'])
+df_grouped = df.groupby(df.index).agg({'A':['sum','mean'],'B':'sum','C':'sum'})
+
+# One method
+df_grouped.columns = ['_'.join(col) for col in df_grouped.columns.values]
+
+# Another method
+['_'.join(col) if type(col) is tuple else col for col in df.columns.values]
+```
+
+What will work depends on the datatypes in the `MultiIndex` tuples.
+
+---
+
