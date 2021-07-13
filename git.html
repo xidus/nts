@@ -1,0 +1,1427 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="More or less complete guides for myself">
+      
+      
+      
+        <meta name="author" content="Joachim Mortensen">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.10">
+    
+    
+      
+        <title>Git - Notes to self</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.1fe995fd.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.f1a3b89f.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="white">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#git" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Notes to self" class="md-header__button md-logo" aria-label="Notes to self" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notes to self
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Git
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/xidus/nts/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nts
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Notes to self" class="md-nav__button md-logo" aria-label="Notes to self" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Notes to self
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/xidus/nts/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nts
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Git
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="git.html" class="md-nav__link md-nav__link--active">
+        Git
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-files" class="md-nav__link">
+    Configuration files
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sshconfig-for-githubcom" class="md-nav__link">
+    ~/.ssh/config for github.com
+  </a>
+  
+    <nav class="md-nav" aria-label="~/.ssh/config for github.com">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case-what-to-do-if-github-is-unreachable-from-my-server-because-port-22-for-outgoing-requests-is-blocked" class="md-nav__link">
+    Case: What to do if github is unreachable from my server, because port 22 for outgoing requests is blocked?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#global-and-local-git-configuration-files" class="md-nav__link">
+    Global and local Git-configuration files
+  </a>
+  
+    <nav class="md-nav" aria-label="Global and local Git-configuration files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#content" class="md-nav__link">
+    Content
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#location" class="md-nav__link">
+    Location
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-keys-and-configuration-file" class="md-nav__link">
+    SSH keys and configuration file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repository-files" class="md-nav__link">
+    Repository files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    Github
+  </a>
+  
+    <nav class="md-nav" aria-label="Github">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-specific-configuration-files" class="md-nav__link">
+    GitHub-specific configuration files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-default-help-for-a-new-empty-repository" class="md-nav__link">
+    GitHub default help for a new empty repository
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clean-up-branches-locally-after-pull-request-merge-on-github" class="md-nav__link">
+    Clean up branches locally after pull-request merge on GitHub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-update-a-github-forked-repository" class="md-nav__link">
+    How do I update a GitHub forked repository?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-changing-master-branch-to-main" class="md-nav__link">
+    GitHub changing master branch to main
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows
+  </a>
+  
+    <nav class="md-nav" aria-label="Windows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-bash-change-default-start-directory-to-avoid-always-having-to-navigate-to-desired-directory" class="md-nav__link">
+    Git Bash: Change default start directory to avoid always having to navigate to desired directory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-create-file-execute-mode-permissions-in-git-on-windows" class="md-nav__link">
+    How to create file execute mode permissions in Git on Windows?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    Workflow
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automatically-update-all-local-repositories" class="md-nav__link">
+    Automatically update all local repositories
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semantic-commit-messages" class="md-nav__link">
+    Semantic commit messages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stash" class="md-nav__link">
+    Stash
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#undo-last-commit" class="md-nav__link">
+    Undo last commit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#untrack-file-without-deleting-it" class="md-nav__link">
+    Untrack file without deleting it.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#squash-commits" class="md-nav__link">
+    Squash commits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-git-as-root-admin-user" class="md-nav__link">
+    Working with git as root / admin user
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mermaidjs" class="md-nav__link">
+    MermaidJS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#line-feed-lf-carriage-return-cr-and-gitattributes-versus-coreautocrlf-true" class="md-nav__link">
+    Line-feed (LF), carriage-return (CR) and .gitattributes versus core.autocrlf = true
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    Other
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="shell.html" class="md-nav__link">
+        Shell
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="leafletjs.html" class="md-nav__link">
+        LeafletJS
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="python.html" class="md-nav__link">
+        Python
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="jupyter.html" class="md-nav__link">
+        Jupyter
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Software Development
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Software Development" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Software Development
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="concepts.html" class="md-nav__link">
+        Concepts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="good.html" class="md-nav__link">
+        Good
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      <label class="md-nav__link" for="__nav_8">
+        Tools
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Tools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pandoc.html" class="md-nav__link">
+        Pandoc
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="squirrel-sql.html" class="md-nav__link">
+        Squirrel SQL
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sybase.html" class="md-nav__link">
+        Sybase ASE
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        Linux
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Linux" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Linux
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="linux/rhel.html" class="md-nav__link">
+        Red Hat
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      <label class="md-nav__link" for="__nav_10">
+        Unix
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Unix" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Unix
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="unix/freebsd.html" class="md-nav__link">
+        FreeBSD
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="miscellaneous.html" class="md-nav__link">
+        Miscellaneous
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="make.html" class="md-nav__link">
+        Makefile
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="bayes.html" class="md-nav__link">
+        Probabilistic Programming
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-files" class="md-nav__link">
+    Configuration files
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sshconfig-for-githubcom" class="md-nav__link">
+    ~/.ssh/config for github.com
+  </a>
+  
+    <nav class="md-nav" aria-label="~/.ssh/config for github.com">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case-what-to-do-if-github-is-unreachable-from-my-server-because-port-22-for-outgoing-requests-is-blocked" class="md-nav__link">
+    Case: What to do if github is unreachable from my server, because port 22 for outgoing requests is blocked?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#global-and-local-git-configuration-files" class="md-nav__link">
+    Global and local Git-configuration files
+  </a>
+  
+    <nav class="md-nav" aria-label="Global and local Git-configuration files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#content" class="md-nav__link">
+    Content
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#location" class="md-nav__link">
+    Location
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-keys-and-configuration-file" class="md-nav__link">
+    SSH keys and configuration file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repository-files" class="md-nav__link">
+    Repository files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    Github
+  </a>
+  
+    <nav class="md-nav" aria-label="Github">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-specific-configuration-files" class="md-nav__link">
+    GitHub-specific configuration files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-default-help-for-a-new-empty-repository" class="md-nav__link">
+    GitHub default help for a new empty repository
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clean-up-branches-locally-after-pull-request-merge-on-github" class="md-nav__link">
+    Clean up branches locally after pull-request merge on GitHub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-update-a-github-forked-repository" class="md-nav__link">
+    How do I update a GitHub forked repository?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-changing-master-branch-to-main" class="md-nav__link">
+    GitHub changing master branch to main
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows
+  </a>
+  
+    <nav class="md-nav" aria-label="Windows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-bash-change-default-start-directory-to-avoid-always-having-to-navigate-to-desired-directory" class="md-nav__link">
+    Git Bash: Change default start directory to avoid always having to navigate to desired directory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-create-file-execute-mode-permissions-in-git-on-windows" class="md-nav__link">
+    How to create file execute mode permissions in Git on Windows?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    Workflow
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automatically-update-all-local-repositories" class="md-nav__link">
+    Automatically update all local repositories
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semantic-commit-messages" class="md-nav__link">
+    Semantic commit messages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stash" class="md-nav__link">
+    Stash
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#undo-last-commit" class="md-nav__link">
+    Undo last commit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#untrack-file-without-deleting-it" class="md-nav__link">
+    Untrack file without deleting it.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#squash-commits" class="md-nav__link">
+    Squash commits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-git-as-root-admin-user" class="md-nav__link">
+    Working with git as root / admin user
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mermaidjs" class="md-nav__link">
+    MermaidJS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#line-feed-lf-carriage-return-cr-and-gitattributes-versus-coreautocrlf-true" class="md-nav__link">
+    Line-feed (LF), carriage-return (CR) and .gitattributes versus core.autocrlf = true
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    Other
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/xidus/nts/edit/master/docs/git.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+
+<h1 id="git">Git<a class="headerlink" href="#git" title="Permanent link">&para;</a></h1>
+<h2 id="configuration-files">Configuration files<a class="headerlink" href="#configuration-files" title="Permanent link">&para;</a></h2>
+<h3 id="sshconfig-for-githubcom"><code>~/.ssh/config</code> for github.com<a class="headerlink" href="#sshconfig-for-githubcom" title="Permanent link">&para;</a></h3>
+<p>Assuming SHS key <code>[MY_KEY]</code> is used</p>
+<div class="highlight"><pre><span></span><code>Host github.com
+    User git
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/[MY_KEY]
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It may be that I set the directory permissions during problem debugging, because I did not have any key with the name I was using.</p>
+</div>
+<p>Remember to set permissions on <code>~/.ssh</code> to, say, <code>600</code>, like so:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># chmod 600 ~/.ssh</span>
+chmod <span class="m">700</span> ~/.ssh
+</code></pre></div>
+<p>The commented-out line above did not work, but making the directory executable did.</p>
+<p>Otherwise, you should get an error like the following, when you run git from the commandline:</p>
+<div class="highlight"><pre><span></span><code>Bad owner or permissions on /home/[USERNAME]/.ssh/config
+</code></pre></div>
+<p>where <code>[USERNAME]</code> would be your username.</p>
+</div>
+<h4 id="case-what-to-do-if-github-is-unreachable-from-my-server-because-port-22-for-outgoing-requests-is-blocked">Case: What to do if github is unreachable from my server, because port 22 for outgoing requests is blocked?<a class="headerlink" href="#case-what-to-do-if-github-is-unreachable-from-my-server-because-port-22-for-outgoing-requests-is-blocked" title="Permanent link">&para;</a></h4>
+<p>Github can be reached with SSH in other ways. The following shows the SSH configuration, I found online (source?)</p>
+<div class="highlight"><pre><span></span><code>Host github.com
+    HostName ssh.github.com
+    Port 443
+    # ...
+</code></pre></div>
+<h2 id="global-and-local-git-configuration-files">Global and local Git-configuration files<a class="headerlink" href="#global-and-local-git-configuration-files" title="Permanent link">&para;</a></h2>
+<h3 id="content">Content<a class="headerlink" href="#content" title="Permanent link">&para;</a></h3>
+<h3 id="location">Location<a class="headerlink" href="#location" title="Permanent link">&para;</a></h3>
+<p>Windows</p>
+<h2 id="ssh-keys-and-configuration-file">SSH keys and configuration file<a class="headerlink" href="#ssh-keys-and-configuration-file" title="Permanent link">&para;</a></h2>
+<p>Linux/BSD</p>
+<ul>
+<li><code>~/.ssh/</code></li>
+</ul>
+<p>Windows</p>
+<p>TBW</p>
+<h2 id="repository-files">Repository files<a class="headerlink" href="#repository-files" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>.gitignore</code></li>
+<li><code>.gitkeep</code></li>
+<li><code>.gitattributes</code></li>
+</ul>
+<h2 id="github">Github<a class="headerlink" href="#github" title="Permanent link">&para;</a></h2>
+<h3 id="github-specific-configuration-files">GitHub-specific configuration files<a class="headerlink" href="#github-specific-configuration-files" title="Permanent link">&para;</a></h3>
+<p>Templates and general</p>
+<ul>
+<li><code>.github/</code></li>
+</ul>
+<p>GitHub Actions-configuration files</p>
+<ul>
+<li><code>.github/workflows/</code></li>
+</ul>
+<h3 id="github-default-help-for-a-new-empty-repository">GitHub default help for a new empty repository<a class="headerlink" href="#github-default-help-for-a-new-empty-repository" title="Permanent link">&para;</a></h3>
+<p><strong>Create a new repository on the command line</strong></p>
+<div class="highlight"><pre><span></span><code>echo &quot;# sdfe-gfit-manual&quot; &gt;&gt; README.md
+git init
+git add README.md
+git commit -m &quot;first commit&quot;
+git branch -M master
+git remote add origin git@github.com:&lt;user&gt;/&lt;repo&gt;.git
+git push -u origin master
+</code></pre></div>
+<p><strong>Push an existing repository from the command line</strong></p>
+<div class="highlight"><pre><span></span><code>git remote add origin git@github.com:&lt;user&gt;/&lt;repo&gt;.git
+git branch -M master
+git push -u origin master
+</code></pre></div>
+<h3 id="clean-up-branches-locally-after-pull-request-merge-on-github">Clean up branches locally after pull-request merge on GitHub<a class="headerlink" href="#clean-up-branches-locally-after-pull-request-merge-on-github" title="Permanent link">&para;</a></h3>
+<p>Based on <a href="http://www.fizerkhan.com/blog/posts/Clean-up-your-local-branches-after-merge-and-delete-in-GitHub.html">this site</a>, I ended up doing the following:</p>
+<ul>
+<li>Locally, I pruned <code>remote origin</code></li>
+<li><code>git remote prune origin</code></li>
+<li>Note that you can prune with the <code>--dry-run</code> argument.</li>
+<li>Locally, I deleted the branch</li>
+<li>The branch-deletion fails due to missing local merge (need elaboration), so I merged the branch to master, locally, as well.</li>
+<li>Then deletion went fine.</li>
+</ul>
+<h3 id="how-do-i-update-a-github-forked-repository"><a href="https://stackoverflow.com/questions/7244321/how-do-i-update-a-github-forked-repository">How do I update a GitHub forked repository?</a><a class="headerlink" href="#how-do-i-update-a-github-forked-repository" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>In your local clone of your forked repository, you can add the original GitHub repository as a "remote". ("Remotes" are like nicknames for the URLs of repositories - origin is one, for example.) Then you can fetch all the branches from that upstream repository, and rebase your work to continue working on the upstream version. In terms of commands that might look like:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Add the remote, call it &quot;upstream&quot;:</span>
+git remote add upstream https://github.com/whoever/whatever.git
+<span class="c1"># Fetch all the branches of that remote into remote-tracking branches,</span>
+<span class="c1"># such as upstream/master:</span>
+git fetch upstream
+<span class="c1"># Make sure that you&#39;re on your master branch:</span>
+git checkout master
+<span class="c1"># Rewrite your master branch so that any commits of yours that</span>
+<span class="c1"># aren&#39;t already in upstream/master are replayed on top of that</span>
+<span class="c1"># other branch:</span>
+git rebase upstream/master
+</code></pre></div>
+<p>If you don't want to rewrite the history of your master branch, (for example because other people may have cloned it) then you should replace the last command with git merge upstream/master. However, for making further pull requests that are as clean as possible, it's probably better to rebase.</p>
+<p>If you've rebased your branch onto upstream/master you may need to force the push in order to push it to your own forked repository on GitHub. You'd do that with:</p>
+<div class="highlight"><pre><span></span><code>git push -f origin master
+</code></pre></div>
+<p>You only need to use the -f the first time after you've rebased.</p>
+</blockquote>
+<h3 id="github-changing-master-branch-to-main">GitHub changing master branch to main<a class="headerlink" href="#github-changing-master-branch-to-main" title="Permanent link">&para;</a></h3>
+<p>These steps are from https://stevenmortimer.com/5-steps-to-change-github-default-branch-from-master-to-main/</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Step 1 </span>
+<span class="c1"># create main branch locally, taking the history from master</span>
+git branch -m master main
+
+<span class="c1"># Step 2 </span>
+<span class="c1"># push the new local main branch to the remote repo (GitHub) </span>
+git push -u origin main
+
+<span class="c1"># Step 3</span>
+<span class="c1"># switch the current HEAD to the main branch</span>
+git symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/main
+
+<span class="c1"># Step 4</span>
+<span class="c1"># change the default branch on GitHub to main</span>
+<span class="c1"># https://docs.github.com/en/github/administering-a-repository/setting-the-default-branch</span>
+
+<span class="c1"># Step 5</span>
+<span class="c1"># delete the master branch on the remote</span>
+git push origin --delete master
+</code></pre></div>
+<p>Other material:</p>
+<ul>
+<li>
+<p>https://www.techrepublic.com/article/github-to-replace-master-with-main-starting-in-october-what-developers-need-to-know/</p>
+</li>
+<li>
+<p>https://stackoverflow.com/questions/64249491/difference-between-main-branch-and-master-branch-in-github</p>
+</li>
+</ul>
+<h2 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h2>
+<h3 id="git-bash-change-default-start-directory-to-avoid-always-having-to-navigate-to-desired-directory">Git Bash: Change default start directory to avoid always having to navigate to desired directory<a class="headerlink" href="#git-bash-change-default-start-directory-to-avoid-always-having-to-navigate-to-desired-directory" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://stackoverflow.com/questions/19916670/how-do-i-launch-a-git-bash-window-with-particular-working-directory-using-a-scri">How do I launch a Git Bash window with particular working directory using a script?</a></li>
+</ul>
+<p>Method 1: Easiest way is to open properties for the short cut for Git Bash and change the directory in the field Start in.</p>
+<p>Method 2: Open Explorer (Windows + E) and navigate to your directory. Then, right-click and select open location with Git Bash.</p>
+<hr />
+<h3 id="how-to-create-file-execute-mode-permissions-in-git-on-windows"><a href="https://stackoverflow.com/questions/21691202/how-to-create-file-execute-mode-permissions-in-git-on-windows#21694391">How to create file execute mode permissions in Git on Windows?</a><a class="headerlink" href="#how-to-create-file-execute-mode-permissions-in-git-on-windows" title="Permanent link">&para;</a></h3>
+<p>From <a href="https://stackoverflow.com/a/38285462">the following answer</a>, I got this simple solution:</p>
+<blockquote>
+<div class="highlight"><pre><span></span><code>git add --chmod=+x -- afile
+git commit -m&quot;Executable!&quot;
+</code></pre></div>
+</blockquote>
+<h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">&para;</a></h2>
+<h3 id="automatically-update-all-local-repositories">Automatically update all local repositories<a class="headerlink" href="#automatically-update-all-local-repositories" title="Permanent link">&para;</a></h3>
+<p>I have written <a href="assets/git-pull-all.sh">the following script</a> that I keep in the directory of git repositories that I use for work.</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="k">for</span> dir <span class="k">in</span> ./*/
+<span class="k">do</span>
+    <span class="nv">dir</span><span class="o">=</span><span class="si">${</span><span class="nv">dir</span><span class="p">%*/</span><span class="si">}</span>
+    <span class="nb">echo</span> <span class="si">${</span><span class="nv">dir</span><span class="p">##*/</span><span class="si">}</span>
+    <span class="nb">cd</span> <span class="si">${</span><span class="nv">dir</span><span class="si">}</span>
+    git pull
+    <span class="nb">cd</span> -
+<span class="k">done</span>
+</code></pre></div>
+<p>The script simply loops over all the directories (assumed to be git repositories) and runs <code>git pull</code> inside each of them.</p>
+<p>Use case: When at work, I often change source files locally or centrally (github enterprise), which means that I do not always have the updated version of the locally activated branches that I have on my work computer. In this case, there is usually no danger involved in automating an update of each repository.</p>
+<p>I found <a href="https://stackoverflow.com/questions/2107945/how-to-loop-over-directories-in-linux#2108296">this simple solution on stack overflow</a>, it only took about two minutes to create a script that does exactly this for me.</p>
+<h3 id="semantic-commit-messages">Semantic commit messages<a class="headerlink" href="#semantic-commit-messages" title="Permanent link">&para;</a></h3>
+<blockquote>
+<div class="highlight"><pre><span></span><code>chore: add Oyster build script
+docs: explain hat wobble
+feat: add beta sequence
+fix: remove broken confirmation message
+refactor: share logic between 4d3d3d3 and flarhgunnstow
+style: convert tabs to spaces
+test: ensure Tayne retains clothing
+</code></pre></div>
+<p>-- Source: https://seesparkbox.com/foundry/semantic_commit_messages</p>
+</blockquote>
+<h3 id="stash">Stash<a class="headerlink" href="#stash" title="Permanent link">&para;</a></h3>
+<p>https://stackoverflow.com/questions/89332/how-to-recover-a-dropped-stash-in-git#91795</p>
+<hr />
+<h3 id="undo-last-commit">Undo last commit<a class="headerlink" href="#undo-last-commit" title="Permanent link">&para;</a></h3>
+<p><code>git reset HEAD~1</code></p>
+<h3 id="untrack-file-without-deleting-it">Untrack file without deleting it.<a class="headerlink" href="#untrack-file-without-deleting-it" title="Permanent link">&para;</a></h3>
+<p>From: https://stackoverflow.com/a/1143800</p>
+<blockquote>
+<p>When --cached is given, the staged content has to match either the tip of the branch or the file on disk, allowing the file to be removed from just the index.</p>
+<p>So, for a single file:</p>
+<div class="highlight"><pre><span></span><code>git rm --cached mylogfile.log
+</code></pre></div>
+<p>and for a single directory:</p>
+<div class="highlight"><pre><span></span><code>git rm --cached -r mydirectory
+</code></pre></div>
+</blockquote>
+<hr />
+<h3 id="squash-commits">Squash commits<a class="headerlink" href="#squash-commits" title="Permanent link">&para;</a></h3>
+<p>From: https://stackoverflow.com/a/5309051</p>
+<blockquote>
+<div class="highlight"><pre><span></span><code>git checkout master
+git merge --squash bugfix
+git commit
+</code></pre></div>
+<p><a href="https://stackoverflow.com/questions/5308816/how-to-use-git-merge-squash#comment26548055_5309051">Comment</a> If you want to keep references to the old commit messages you can write git commit (without -m param) and you will get to modify a drafted commit message containing all commit messages that you squashed.</p>
+</blockquote>
+<hr />
+<h3 id="working-with-git-as-root-admin-user">Working with git as root / admin user<a class="headerlink" href="#working-with-git-as-root-admin-user" title="Permanent link">&para;</a></h3>
+<p>These are some ideas that I have tried out previously. They do not feel right, but they work.</p>
+<p>Admin user is a user on the host with root privileges using <code>sudo</code>.</p>
+<p>As admin user on the server:</p>
+<ul>
+<li>Add info to admin user <code>~/.gitconfig</code></li>
+<li>Add info to root user <code>/root/.gitconfig</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code>(...)
+[user]
+    name = Any admin user
+    email = actual email of maintainer.
+    username = root@server
+(...)
+</code></pre></div>
+<ul>
+<li>Add info to repo's config file <code>.git/config</code></li>
+</ul>
+<p>Details of repo's config file for use with this setup:</p>
+<div class="highlight"><pre><span></span><code>(...)
+[core]
+    repositoryformatversion = 0
+    filemode = true
+    bare = false
+    logallrefupdates = true
+    sshCommand = ssh -i ~/.ssh/[SSHKEY] -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no
+(...)
+</code></pre></div>
+<ul>
+<li>Add SSH key (GH deploy key) to <code>/root/.ssh</code></li>
+<li>
+<p>Add this key to repository's deploy keys on GH.</p>
+</li>
+<li>
+<p>On the server, all write operations, including git push and git pull must be run with sudo.</p>
+</li>
+</ul>
+<h3 id="mermaidjs">MermaidJS<a class="headerlink" href="#mermaidjs" title="Permanent link">&para;</a></h3>
+<div class="mermaid">
+    graph LR
+    A[system] -->|extracted| B(program.py)
+    B -->|Step 1| C(search)
+    C -->|Raw HTML| D[`cmd1`]
+    B -->|Step 2| E(get)
+    E -->|Raw| F[`cmd2`]
+    B -->|Step 3| G(transform)
+    G -->|format| H[`cmd3`]
+</div>
+
+<hr />
+<h3 id="line-feed-lf-carriage-return-cr-and-gitattributes-versus-coreautocrlf-true">Line-feed (LF), carriage-return (CR) and <code>.gitattributes</code> versus <code>core.autocrlf = true</code><a class="headerlink" href="#line-feed-lf-carriage-return-cr-and-gitattributes-versus-coreautocrlf-true" title="Permanent link">&para;</a></h3>
+<ul>
+<li>https://stackoverflow.com/questions/5834014/lf-will-be-replaced-by-crlf-in-git-what-is-that-and-is-it-important#5834094</li>
+<li>https://stackoverflow.com/a/31747915</li>
+<li>https://stackoverflow.com/questions/57960566/how-to-force-consistent-line-endings-in-git-commits-with-cross-platform-compatib/59644154#59644154</li>
+<li>https://docs.github.com/en/free-pro-team@latest/github/using-git/configuring-git-to-handle-line-endings#per-repository-settings</li>
+</ul>
+<hr />
+<h3 id="other">Other<a class="headerlink" href="#other" title="Permanent link">&para;</a></h3>
+<ul>
+<li>https://stackoverflow.com/questions/12481639/remove-files-from-git-commit/15321456#15321456</li>
+<li>https://stackoverflow.com/questions/307828/how-do-you-fix-a-bad-merge-and-replay-your-good-commits-onto-a-fixed-merge</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="index.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Home" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Home
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="shell.html" class="md-footer__link md-footer__link--next" aria-label="Next: Shell" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Shell
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.ddd52ceb.min.js"></script>
+      
+    
+  </body>
+</html>
