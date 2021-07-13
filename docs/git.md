@@ -15,7 +15,7 @@ Host github.com
     IdentityFile ~/.ssh/[MY_KEY]
 ```
 
-??? note
+!!! note
     
     !!! warning
     
@@ -85,6 +85,27 @@ GitHub Actions-configuration files
 
 * `.github/workflows/`
 
+### GitHub default help for a new empty repository
+
+**Create a new repository on the command line**
+
+```
+echo "# sdfe-gfit-manual" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M master
+git remote add origin git@github.com:<user>/<repo>.git
+git push -u origin master
+```
+
+**Push an existing repository from the command line**
+
+```
+git remote add origin git@github.com:<user>/<repo>.git
+git branch -M master
+git push -u origin master
+```
 
 ### Clean up branches locally after pull-request merge on GitHub
 
